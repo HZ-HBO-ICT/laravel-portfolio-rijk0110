@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,21 +15,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts/{post}', function ($post) {
-    $posts = [
-        'my-first-post' => 'Hello, this is my first blog post!',
-        'my-second-post' => 'Now I am getting the hang of this blogging thing.'
-    ];
 
-    if (!array_key_exists($post, $posts)) {
-        abort(404, 'Sorry, that post was not found.');
-    }
+Route::get('/posts/{post}', [PostsController::class, 'show']);
 
-    return view('post', [
-        'post' => $posts[$post]
-    ]);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+Route::get('/blogpostfeed', function () {
+    return view('blogpostfeed');
+});
+Route::get('/blogpostsaf', function () {
+    return view('blogpostsaf');
+});
+Route::get('/blogpostsec', function () {
+    return view('blogpostsec');
+});
+Route::get('/blogpostswot', function () {
+    return view('blogpostswot');
+});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+Route::get('/faq', function () {
+    return view('faq');
+});
+Route::get('/post', function () {
+    return view('post');
+});
+Route::get('/profile', function () {
+    return view('profile');
 });
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return view('welcome');
 });
+
