@@ -40,10 +40,11 @@ Route::get('/blogpostswot', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-//Route::get('/faq', function () {
-//    return view('faq');
-//});
+Route::get('/layout', function () {
+    return view('layout');
+});
 Route::get('/faq', [\App\Http\Controllers\FAQController::class, 'show']);
+
 Route::get('/post', function () {
     return view('post');
 });
@@ -51,7 +52,7 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
