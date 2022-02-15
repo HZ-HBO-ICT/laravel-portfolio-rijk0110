@@ -23,19 +23,19 @@ Route::get('/posts/{post}', [PostsController::class, 'show']);
 // });
 
 Route::get('/blog', function () {
-    return view('blog');
+    return view('/Blogposts/blog');
 });
 Route::get('/blogpostfeed', function () {
-    return view('blogpostfeed');
+    return view('/Blogposts/blogpostfeed');
 });
 Route::get('/blogpostsaf', function () {
-    return view('blogpostsaf');
+    return view('/Blogposts/blogpostsaf');
 });
 Route::get('/blogpostsec', function () {
-    return view('blogpostsec');
+    return view('/Blogposts/blogpostsec');
 });
 Route::get('/blogpostswot', function () {
-    return view('blogpostswot');
+    return view('/Blogposts/blogpostswot');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -56,3 +56,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/article', function () {
+    return view('article', [
+        'articles' => App\Models\Article::all()
+    ]);
+});
+Route::get('/articles/{article}', [\App\Http\Controllers\ArticlesController::class, 'show']);

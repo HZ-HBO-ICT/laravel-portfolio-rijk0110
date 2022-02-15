@@ -44,7 +44,7 @@
           <h5>Voors en tegens</h5>
             <p>Positief: Er zijn veel uitgroei mogelijkheden in het bedrijf zelf en er is veel technologie die op het <br>
                moment al gebruikt word dus het is makkelijk instappen
-            <br>Negatief: Het bedrijf is gevestigd in vlissingen.
+            <br>Negatief: Het bedrijf is gevestigd in Vlissingen.
           </p>
 
         <img src="img/img/macaw.jpg" alt="" style="border-radius: 50%;height:100px;padding-left:10px; ">
