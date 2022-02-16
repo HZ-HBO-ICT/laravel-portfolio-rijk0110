@@ -19,8 +19,8 @@
                         <p>{{$article->excerpt}}</p>
 
                 @endforeach
-
-
+                <button onclick="window.location='/article/createarticles';" value="Vul zelf een FAQ toe" />
+                <img src="img/img/hz.jpg" alt="" style="width:300px;height:150px;">
 
             </div>
         </div>

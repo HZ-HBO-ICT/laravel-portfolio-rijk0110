@@ -22,4 +22,20 @@ class FAQController extends Controller
             'posts' => $posts
         ]);
     }
+    public function create()
+    {
+        return view('/faq/create');
+    }
+    public function store()
+    {
+        $faq = new faq();
+
+        $faq->question = request('question');
+        $faq->answer = request('answer');
+
+        $faq->save();
+        return redirect('/faq');
+    }
+
+
 }

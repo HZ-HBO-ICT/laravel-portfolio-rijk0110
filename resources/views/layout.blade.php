@@ -2,10 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-    <link rel="stylesheet" href="/css/style.css">
+     @yield('head')
+
+     <link rel="stylesheet" href="/css/style.css">
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
     <title>index</title>
 </head>
 
@@ -13,10 +20,10 @@
  <nav class="sticky">
      <ul>
          <li class="{{ Request::path() === '/' ? 'active' : '' }}"><a href="/" rel="noopener noreferrer">Home</a></li>
-         <li class="{{ Request::path() === 'profile' ? 'active' : '' }}"><a href="profile" rel="noopener noreferrer">Profiel</a></li>
-         <li class="{{ Request::path() === 'blog' ? 'active' : '' }}"><a href="blog" rel="noopener noreferrer">Blog</a></li>
-         <li class="{{ Request::path() === 'faq' ? 'active' : '' }}"><a href="faq" rel="noopener noreferrer">FAQ</a></li>
-         <li class="{{ Request::path() === 'dashboard' ? 'active' : '' }}"><a href="dashboard" rel="noopener noreferrer">Dashboard</a></li>
+         <li class="{{ Request::path() === 'profile' ? 'active' : '' }}"><a href="/profile" rel="noopener noreferrer">Profiel</a></li>
+         <li class="{{ Request::path() === 'article' ? 'active' : '' }}"><a href="/article" rel="noopener noreferrer">Article</a></li>
+         <li class="{{ Request::path() === 'faq' ? 'active' : '' }}"><a href="/faq" rel="noopener noreferrer">FAQ</a></li>
+         <li class="{{ Request::path() === 'dashboard' ? 'active' : '' }}"><a href="/dashboard" rel="noopener noreferrer">Dashboard</a></li>
      </ul>
      <!-- Sidebar -->
      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

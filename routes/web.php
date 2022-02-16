@@ -61,4 +61,13 @@ Route::get('/article', function () {
         'articles' => App\Models\Article::all()
     ]);
 });
+Route::get('/faq/', [\App\Http\Controllers\FAQController::class, 'show']);
+Route::post('/faq/', [\App\Http\Controllers\FAQController::class, 'store']);
+Route::get('/faq/create', [\App\Http\Controllers\FAQController::class, 'create']);
+
+//Route::get('/article/', [\App\Http\Controllers\ArticlesController::class, 'show']);
+Route::get('/article', [\App\Http\Controllers\ArticlesController::class, 'index']);
+
+Route::get('/article/createarticles', [\App\Http\Controllers\ArticlesController::class, 'create']);
+Route::post('/article/', [\App\Http\Controllers\ArticlesController::class, 'store']);
 Route::get('/articles/{article}', [\App\Http\Controllers\ArticlesController::class, 'show']);
