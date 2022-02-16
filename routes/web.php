@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,21 +15,59 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts/{post}', function ($post) {
-    $posts = [
-        'my-first-post' => 'Hello, this is my first blog post!',
-        'my-second-post' => 'Now I am getting the hang of this blogging thing.'
-    ];
 
-    if (!array_key_exists($post, $posts)) {
-        abort(404, 'Sorry, that post was not found.');
-    }
+Route::get('/posts/{post}', [PostsController::class, 'show']);
 
-    return view('post', [
-        'post' => $posts[$post]
-    ]);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/blog', function () {
+    return view('/Blogposts/blog');
+});
+Route::get('/blogpostfeed', function () {
+    return view('/Blogposts/blogpostfeed');
+});
+Route::get('/blogpostsaf', function () {
+    return view('/Blogposts/blogpostsaf');
+});
+Route::get('/blogpostsec', function () {
+    return view('/Blogposts/blogpostsec');
+});
+Route::get('/blogpostswot', function () {
+    return view('/Blogposts/blogpostswot');
+});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+Route::get('/layout', function () {
+    return view('layout');
+});
+Route::get('/faq', [\App\Http\Controllers\FAQController::class, 'show']);
+
+Route::get('/post', function () {
+    return view('post');
+});
+Route::get('/profile', function () {
+    return view('profile');
 });
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/article', function () {
+    return view('article', [
+        'articles' => App\Models\Article::all()
+    ]);
+});
+Route::get('/faq/', [\App\Http\Controllers\FAQController::class, 'show']);
+Route::post('/faq/', [\App\Http\Controllers\FAQController::class, 'store']);
+Route::get('/faq/create', [\App\Http\Controllers\FAQController::class, 'create']);
+
+//Route::get('/article/', [\App\Http\Controllers\ArticlesController::class, 'show']);
+Route::get('/article', [\App\Http\Controllers\ArticlesController::class, 'index']);
+
+Route::get('/article/createarticles', [\App\Http\Controllers\ArticlesController::class, 'create']);
+Route::post('/article/', [\App\Http\Controllers\ArticlesController::class, 'store']);
+Route::get('/articles/{article}', [\App\Http\Controllers\ArticlesController::class, 'show']);
